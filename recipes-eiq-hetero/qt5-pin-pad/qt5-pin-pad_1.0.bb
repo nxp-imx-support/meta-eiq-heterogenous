@@ -7,7 +7,7 @@
 DESCRIPTION = "QT5 application based on WebEngine"
 LICENSE = "CLOSED"
 
-SRC_URI = "https://bitbucket.sw.nxp.com/projects/MICRSE/repos/eiq-hetero-qt5-pin-pad/browse"
+SRC_URI = "git://bitbucket.sw.nxp.com/micrse/eiq-hetero-qt5-pin-pad.git;protocol=ssh;branch=master"
 SRCREV = "master"
 S = "${WORKDIR}/git"
 

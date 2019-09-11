@@ -37,7 +37,7 @@ IMAGE_INSTALL_append = " \
 
 IMAGE_INSTALL_append = " \
 			qt5-pin-pad \
-			eIQ-hetero \
+			eiq-hetero \
 "
 
 # Security

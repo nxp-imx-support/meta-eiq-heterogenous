@@ -18,7 +18,7 @@ $: repo sync
 $: EULA=1 MACHINE=imx8mmevk DISTRO=fsl-imx-xwayland source ./fsl-setup-release.sh -b bld-xwayland
 ```
 2. Clone **meta-eIQ-hetero** demo layer in **${BSPDIR}/sources/**
-3. Add eIQ and demo layers. Add the following line into ${BSPDIR}/sources/base/conf/bblayers.conf:
+3. Add eIQ and demo layers. Add the following line into conf/bblayers.conf:
 ```
 BBLAYERS += " ${BSPDIR}/sources/meta-imx-machinelearning "
 BBLAYERS += " ${BSPDIR}/sources/meta-eIQ-hetero "
@@ -52,6 +52,6 @@ IMAGE_ROOTFS_EXTRA_SPACE = "20971520"
 ```
 5. Bake the image:
 ```bash
-$: bitbake image-eIQ-hetero
+$: bitbake image-eiq-hetero
 
 
