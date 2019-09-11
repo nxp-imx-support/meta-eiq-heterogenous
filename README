@@ -1,0 +1,57 @@
+Heterogenous eIQ Demo
+=====================
+Supported platforms:
+- i.MX8M Mini
+
+Supported BSP:
+- 4.14.98-2.0.0
+
+Quick Start Guide
+-----------------
+**Requirements:** Ubuntu 16 Host PC 
+1. Project initialization
+```bash
+$: mkdir imx-linux-bsp
+$: cd imx-linux-bsp
+$: repo init -u https://source.codeaurora.org/external/imx/imx-manifest -b imx-linux-sumo -m imx-4.14.98-2.0.0_machinelearning.xml
+$: repo sync
+$: EULA=1 MACHINE=imx8mmevk DISTRO=fsl-imx-xwayland source ./fsl-setup-release.sh -b bld-xwayland
+```
+2. Clone **meta-eIQ-hetero** demo layer in **${BSPDIR}/sources/**
+3. Add eIQ and demo layers. Add the following line into ${BSPDIR}/sources/base/conf/bblayers.conf:
+```
+BBLAYERS += " ${BSPDIR}/sources/meta-imx-machinelearning "
+BBLAYERS += " ${BSPDIR}/sources/meta-eIQ-hetero "
+```
+4. Enable eIQ and other dependencies. Add the following lines into conf/local.conf:
+```
+EXTRA_IMAGE_FEATURES = " dev-pkgs debug-tweaks tools-debug \
+                         tools-sdk ssh-server-openssh"
+ 
+IMAGE_INSTALL_append = " net-tools iputils dhcpcd which gzip \
+                         python3 python3-pip wget cmake gtest \
+                         git zlib patchelf nano grep vim tmux \
+                         swig tar unzip parted \
+                         e2fsprogs e2fsprogs-resize2fs"
+
+IMAGE_INSTALL_append = " python3-pytz python3-django-cors-headers"
+ 
+IMAGE_INSTALL_append = " opencv python3-opencv"
+PACKAGECONFIG_append_pn-opencv_mx8 = " dnn python3 qt5 jasper \
+                                       openmp test neon"
+ 
+PACKAGECONFIG_remove_pn-opencv_mx8 = "opencl"
+PACKAGECONFIG_remove_pn-arm-compute-library = "opencl"
+ 
+TOOLCHAIN_HOST_TASK_append = " nativesdk-cmake nativesdk-make"
+ 
+PREFERRED_VERSION_opencv = "4.0.1%"
+PREFERRED_VERSION_python3-django = "2.1%"
+ 
+IMAGE_ROOTFS_EXTRA_SPACE = "20971520"
+```
+5. Bake the image:
+```bash
+$: bitbake image-eIQ-hetero
+
+
