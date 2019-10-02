@@ -6,11 +6,11 @@
 
 DESCRIPTION = "Heterogenous eIQ Demo - Cortex A Project"
 
-HOMEPAGE = "https://bitbucket.sw.nxp.com/projects/IMXS/repos/eiq-heterogenous-cortexa/browse"
+HOMEPAGE = "https://source.codeaurora.org/external/imxsupport/eiq-heterogenous-cortexa"
 
 LICENSE = "CLOSED"
 
-SRC_URI = "git://bitbucket.sw.nxp.com/imxs/eiq-heterogenous-cortexa.git;protocol=ssh;branch=master"
+SRC_URI = "git://source.codeaurora.org/external/imxsupport/eiq-heterogenous-cortexa.git;protocol=https;branch=master"
 
 SRCREV = "${AUTOREV}"
 S = "${WORKDIR}/git"

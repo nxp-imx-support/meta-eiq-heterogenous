@@ -7,7 +7,7 @@
 DESCRIPTION = "QT5 application based on WebEngine"
 LICENSE = "CLOSED"
 
-SRC_URI = "git://bitbucket.sw.nxp.com/imxs/eiq-heterogenous-qt5-pin-pad.git;protocol=ssh;branch=master"
+SRC_URI = "git://source.codeaurora.org/external/imxsupport/eiq-heterogenous-qt5-pin-pad.git;protocol=https;branch=master"
 SRCREV = "master"
 S = "${WORKDIR}/git"
 
