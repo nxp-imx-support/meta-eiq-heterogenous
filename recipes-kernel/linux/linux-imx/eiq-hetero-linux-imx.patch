@@ -101,23 +101,6 @@ index 57de82e..7b933d5 100755
  };
  
  &fec1 {
-diff --git a/arch/arm64/boot/dts/freescale/fsl-imx8mm.dtsi b/arch/arm64/boot/dts/freescale/fsl-imx8mm.dtsi
-index e200219..e246998 100644
---- a/arch/arm64/boot/dts/freescale/fsl-imx8mm.dtsi
-+++ b/arch/arm64/boot/dts/freescale/fsl-imx8mm.dtsi
-@@ -88,6 +88,12 @@
- 			no-map;
- 			reg = <0 0xb8000000 0 0x400000>;
- 		};
-+
-+                sai_reserved: sai@0x80000000 {
-+                        no-map;
-+                        reg = <0 0x80000000 0 0x1000000>;
-+                };
-+
- 	};
- 
- 	gic: interrupt-controller@38800000 {
 diff --git a/drivers/clk/imx/clk-imx8mm.c b/drivers/clk/imx/clk-imx8mm.c
 index 5709bfc..105b892 100644
 --- a/drivers/clk/imx/clk-imx8mm.c
